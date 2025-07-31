@@ -1,18 +1,22 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-// Update the import path below to the correct relative path for your TodoList component
 import TodoList from '../components/TodoList';
 
-test('adds a task and displays it', () => {
+test('deletes a task when delete button is clicked', () => {
   render(<TodoList />);
   
   const input = screen.getByPlaceholderText(/add a task/i);
   const addButton = screen.getByText(/add/i);
 
-  // Simulate typing and clicking
-  fireEvent.change(input, { target: { value: 'Test Task' } });
+  // Add a task
+  fireEvent.change(input, { target: { value: 'Delete Task' } });
   fireEvent.click(addButton);
 
-  // Expect the task to appear in the list
-  expect(screen.getByText('Test Task')).toBeInTheDocument();
+  const deleteButton = screen.getByLabelText('Delete task Delete Task');
+  fireEvent.click(deleteButton);
+
+
+  // Task should be gone
+  expect(screen.queryByText('Delete Task')).not.toBeInTheDocument();
 });
+
