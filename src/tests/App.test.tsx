@@ -16,7 +16,7 @@ test('deletes a task when delete button is clicked', () => {
   fireEvent.click(deleteButton);
 
 
-  // Task should be gone
+  
   expect(screen.queryByText('Delete Task')).not.toBeInTheDocument();
 });
 
