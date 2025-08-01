@@ -43,7 +43,6 @@ This is often summarized by the **Red-Green-Refactor** loop:
 - Use **descriptive test names**.
 - Keep **test and production code separate**.
 - Commit only **green** (passing) code.
-- Use **tools like Jest, Mocha, PyTest, JUnit**, etc.
 
 ---
 
